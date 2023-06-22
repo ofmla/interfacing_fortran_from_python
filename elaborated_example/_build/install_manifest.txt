@@ -1,0 +1,10 @@
+/Users/oscarmojica/opt/elaborated_example/lib/libpygravmod3d.dylib
+/Users/oscarmojica/opt/elaborated_example/lib/libpygravmod3d-openmp.dylib
+/Users/oscarmojica/opt/elaborated_example/include/pygravmod3d/fmod/grav_kinds.mod
+/Users/oscarmojica/opt/elaborated_example/include/pygravmod3d/fmod/grav3d_module.mod
+/Users/oscarmojica/opt/elaborated_example/bin/app
+/Users/oscarmojica/opt/elaborated_example/bin/app-openmp
+/Users/oscarmojica/opt/elaborated_example/lib/cmake/pygravmod3d/pygravmod3d-targets.cmake
+/Users/oscarmojica/opt/elaborated_example/lib/cmake/pygravmod3d/pygravmod3d-targets-release.cmake
+/Users/oscarmojica/opt/elaborated_example/lib/cmake/pygravmod3d/pygravmod3d-config.cmake
+/Users/oscarmojica/opt/elaborated_example/lib/cmake/pygravmod3d/pygravmod3d-config-version.cmake

@@ -1,0 +1,1 @@
+/opt/homebrew/bin/gfortran   -std=f2008  -O3 -funroll-all-loops -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -dynamiclib -Wl,-headerpad_max_install_names -o libpygravmod3d.dylib -install_name @rpath/libpygravmod3d.dylib CMakeFiles/pygravmod3d.dir/grav_kinds.f90.o CMakeFiles/pygravmod3d.dir/gr3dmod.f90.o 
