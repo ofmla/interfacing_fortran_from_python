@@ -1,4 +1,0 @@
-# The fortran modules provided by this target.
-provides
- grav3d_module.mod
- grav_kinds.mod

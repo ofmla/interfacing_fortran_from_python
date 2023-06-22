@@ -1,1 +1,0 @@
-/opt/homebrew/bin/gfortran   -std=f2008  -O3 -funroll-all-loops -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 CMakeFiles/app.dir/main.f90.o -o app  -Wl,-rpath,/Users/oscarmojica/Desktop/interfacing_fortran_from_python/elaborate_example/_build/src ../src/libpygravmod3d.dylib 
