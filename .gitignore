@@ -7,3 +7,10 @@
 # Ignore mod files
 *.mod
 
+# Ignore shared objects
+*.so
+
+# Ignore build artefacts
+/plain_example/build/
+/plain_example/mod_sum.c
+
