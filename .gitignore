@@ -1,0 +1,9 @@
+# Ignore object files
+*.o
+
+# Ignore shared library files
+*.so
+
+# Ignore mod files
+*.mod
+
