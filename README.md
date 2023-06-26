@@ -19,25 +19,31 @@ In the first case, it is used the Fortran SUM intrinsic function to compute the 
 
 + Linux + nvfortran 23.5-0
 ```
-nvfortran -O3 -march=native -fpic -c mod_sum.f90
+nvfortran -O3 -march=native -fpic -c mod_sum.f90 -o mod_sum.o
 nvfortran -shared -o mod_sum.so mod_sum.o
 ```
 
 + Linux + ifort
 ```
-ifort -O3 -march=native -fpic -c mod_sum.f90
+ifort -O3 -march=native -fpic -c mod_sum.f90 -o mod_sum.o
 ifort -shared -o mod_sum.so mod_sum.o
 ```
 
 + Linux + ifx
 ```
-ifx -O3 -march=native -fpic -c mod_sum.f90
+ifx -O3 -march=native -fpic -c mod_sum.f90 -o mod_sum.o
 ifx -shared -o mod_sum.so mod_sum.o
 ```
 
-The python binding of the Fortran subroutine, using the [pythom module ctypes](https://docs.python.org/3/library/ctypes.html), is define in `ctypes_sum.py`:
+The examples of calling the Fortran subroutine using the [pythom module ctypes](https://docs.python.org/3/library/ctypes.html), [CFFI](https://cffi.readthedocs.io/en/latest/) and [cython](https://cython.org) are defined in `ctypes_plain.py`, `cffi_plain.py` and `cython_plain.py`, respectively. In the last case, you have to compile the fortran module first (as shown in the first command line of the previous examples), and then run the following command before you can use the corresponding module
 ```
-python ctypes_sum.py
+python setup.py build_ext --inplace
+```
+
+By running any of these scripts you will get the same result, e.g.:
+```
+python ctypes_plain.py
+[2. 4. 6.]
 ```
 
 ## Elaborated example
