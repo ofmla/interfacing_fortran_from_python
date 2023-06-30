@@ -17,7 +17,7 @@ module grav3d_module
     real(dp), parameter :: z1=1e-6
     integer, parameter :: lenstrn=5
 
-    public funcpdf, gr3dprm
+    public funcpdf, c_funcpdf, gr3dprm
 
     contains
 !************************************************************************************      
@@ -113,7 +113,7 @@ module grav3d_module
 !  as the sum of the contributions of 'n' rectangular prisms 
 	
     subroutine c_funcpdf(ista, iend, n, m, sd, alpha, dx, dy, z, &
-        xprm, yprm, xrec, yrec, f, cpl_opt) bind(C, name="funcpdf")
+        xprm, yprm, xrec, yrec, f, cpl_opt) bind(C, name="c_funcpdf")
 
     use iso_c_binding
     implicit none

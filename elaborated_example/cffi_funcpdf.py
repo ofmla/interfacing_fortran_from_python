@@ -9,7 +9,7 @@ ffi = cffi.FFI()
 
 # Load shared library
 path = Path.home()
-name = "libpygravmod3d-openmp"
+name = "libpygravmod3d"
 if sys.platform.startswith("linux"):
     name = f"{name}.so"
 elif sys.platform == "darwin":
@@ -22,8 +22,8 @@ lib = ffi.dlopen(str(path / name))
 
 # Define CFFI types
 ffi.cdef("""
-    void funcpdf(int*, int*, int*, int*, double*, double*, double*, double*, double*,
-                 double*, double*, double*, double*, double*, const char*);
+    void c_funcpdf(int*, int*, int*, int*, double*, double*, double*, double*, double*,
+                   double*, double*, double*, double*, double*, const char*);
 """)
 
 def read_xy_or_xyz(filename):
@@ -94,7 +94,7 @@ if __name__ == "__main__":
     in_ptr = ffi.NULL
 
     # Now we should process the data somehow...
-    lib.funcpdf(
+    lib.c_funcpdf(
         ffi.new("int*", 1),
         ffi.new("int*", len(xrec)),
         ffi.new("int*", len(x)),

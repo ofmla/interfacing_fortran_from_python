@@ -6,7 +6,7 @@ import sys
 
 # Load shared library
 path = Path.home()
-name = "libpygravmod3d-openmp"
+name = "libpygravmod3d"
 if sys.platform.startswith("linux"):
     name = f"{name}.so"
 elif sys.platform == "darwin":
@@ -81,7 +81,7 @@ if __name__ == "__main__":
     values = read_txt_file("./data/input.dat")
     f = np.zeros_like(xrec)
     
-    lib.funcpdf.argtypes = [
+    lib.c_funcpdf.argtypes = [
         POINTER(c_int),
         POINTER(c_int),
         POINTER(c_int),
@@ -98,14 +98,14 @@ if __name__ == "__main__":
         POINTER(c_double),
         c_char_p,
     ]
-    lib.funcpdf.restype = None
+    lib.c_funcpdf.restype = None
     
     # The input [byte] string - which we leave unchanged.
     in_ptr = c_char_p(b'inner')
     in_ptr = None
     
     # Now we should process the data somehow...
-    lib.funcpdf(byref(c_int(1)),
+    lib.c_funcpdf(byref(c_int(1)),
          byref(c_int(len(xrec))),
          byref(c_int(len(x))),
          byref(c_int(len(xrec))),
