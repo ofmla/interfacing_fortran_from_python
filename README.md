@@ -9,7 +9,21 @@ Opting for the explicit C interface route, the first thing to do is write a wrap
 
 ## What do you need
 
-To complete the steps outlined in this tutorial, you need a Linux system with Fortran development related packages and Python installed.
+To complete the steps outlined in this tutorial, you need a Linux system with Fortran/C development related packages and Python installed. On `Debian` based systems you can install the required packages using:
+```
+sudo apt-get update
+# Install required dependencies
+sudo apt-get install build-essential \
+                     cmake \
+                     gfortran \
+                     gcc \
+                     g++
+
+# Install optional dependencies
+sudo apt-get install python3 \
+                     python3-dev \
+                     cython3
+```
 
 The repository contains two folders, one with a simple example and the other with a more complicated one.
 
@@ -40,7 +54,9 @@ The examples of calling the Fortran subroutine using the [pythom module ctypes](
 CC=icx python setup.py build_ext --inplace
 ```
 
-Note you need to set `CC` with the proper compiler. By running any of these scripts you will get the same result, e.g.:
+Note you need to set `CC` with the proper compiler. This command is used to build a Python extension. The `build_ext` command compiles the C source files of the extension module and generates the corresponding shared library file. By using the `--inplace` option, the shared library file is placed in the current directory alongside the Python source files, making it accessible for importing and using in Python scripts without the need for installation.
+
+By running any of these scripts you will get the same result, e.g.:
 ```
 python ctypes_plain.py
 [2. 4. 6.]
@@ -71,7 +87,14 @@ Adjust the value of the `FC` environment variable according to the compiler
 you use.
 Using ``-DWITH_OPENMP:BOOL=ON`` will build two versions of the library, a serial version and another with support for shared memory parallelization using the [OpenMP](https://en.wikipedia.org/wiki/OpenMP) threading standard.
 
-The python binding of the Fortran *funcpdf* subroutine, using the [pythom module ctypes](https://docs.python.org/3/library/ctypes.html), is define in `ctypes_funcpdf.py`:
+As in the simple case, three examples are available: `ctypes_funcpdf.py`, `cffi_funcpdf.py` and `cython_funcpdf.py`. For using [cython](https://cython.org) we follow the same steps as before: 
+
++ Compile the source files (files in `src` folder) to object files. The sequence of commands looks like this:
 ```
-python ctypes_funcpdf.py
+gfortran -O3 -march=native -fpic -c grav_kinds.mod.f90 -o grav_kinds.o
+gfortran -O3 -march=native -fpic -c gr3dmod.f90 -o gr3dmod.o
 ```
++ Define function to be imported from C and the wrapper for calling it from Python (`c_funcpdf.pyx`)
++ Use distutils to compile shared library for Python (`python setup.py build_ext --inplace`)
+
+Once the shared library is generated, we can import the corresponding Python module into our Python code (`cython_funcpdf.py`) and use the functions or classes defined in the extension module, which are implemented in C.
