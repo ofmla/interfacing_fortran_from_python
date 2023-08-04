@@ -91,7 +91,7 @@ As in the simple case, three examples are available: `ctypes_funcpdf.py`, `cffi_
 
 + Compile the source files (files in `src` folder) to object files. The sequence of commands looks like this:
 ```
-gfortran -O3 -march=native -fpic -c grav_kinds.mod.f90 -o grav_kinds.o
+gfortran -O3 -march=native -fpic -c grav_kinds.f90 -o grav_kinds.o
 gfortran -O3 -march=native -fpic -c gr3dmod.f90 -o gr3dmod.o
 ```
 + Define function to be imported from C and the wrapper for calling it from Python (`c_funcpdf.pyx`)
