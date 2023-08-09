@@ -1,15 +1,16 @@
 from setuptools import setup, Extension
-from Cython.Distutils import build_ext
 import numpy
 
 extensions = [
     Extension("c_funcpdf", sources=["c_funcpdf.pyx"],
-              extra_link_args=["gr3dmod.o"]),  # Add the source file here
+              extra_link_args=["gr3dmod.o"],
+              include_dirs=[numpy.get_include()],
+              define_macros=[("NPY_NO_DEPRECATED_API", "NPY_1_7_API_VERSION")])
 ]
 
-setup(
-    cmdclass = {'build_ext': build_ext},
-    ext_modules=extensions,
-    include_dirs=[numpy.get_include()]
-)
+for e in extensions:
+    e.cython_directives ={'language_level': "3"}
 
+setup(
+    ext_modules=extensions,
+)
