@@ -1,5 +1,5 @@
 # interfacing_fortran_from_python
-Tutorial -- Interfacing Fortran and Python: Using cffi, ctypes and cython
+Tutorial -- Interfacing Fortran and Python: Using cffi, ctypes and cython [📝 PDF](https://github.com/ofmla/interfacing_fortran_from_python/doc/interfacing_fortran_and_python.pdf)
 
 
 In this tutorial you will get a basic knowledge on different alternatives of calling Fortran code from Python. The tutorial focuses on the explicit C interface route, that is,
@@ -98,3 +98,13 @@ gfortran -O3 -march=native -fpic -c gr3dmod.f90 -o gr3dmod.o
 + Use distutils to compile shared library for Python (`python setup.py build_ext --inplace`)
 
 Once the shared library is generated, we can import the corresponding Python module into our Python code (`cython_funcpdf.py`) and use the functions or classes defined in the extension module, which are implemented in C.
+
+## License
+
+These materials are for a course intended to provide an introduction to the explicit C interface approach for accessing Fortran code from Python. The course is aimed at a scientific audience. Comments, corrections, and additions are welcome.
+
+All source code is made available under the BSD 3-clause license. You can freely use and modify the code, without warranty, so long as you provide attribution to the authors.
+
+Unless otherwise specified, other (non-code) content is available under the Creative Commons Attribution 4.0 License (CC-BY).
+
+The full text of these licenses is provided in the [LICENSE](https://github.com/ofmla/interfacing_fortran_from_python/blob/main/LICENSE) file.
