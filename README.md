@@ -1,5 +1,5 @@
 # interfacing_fortran_from_python
-Tutorial -- Interfacing Fortran and Python: Using cffi, ctypes and cython [📝 PDF](https://github.com/ofmla/interfacing_fortran_from_python/doc/interfacing_fortran_and_python.pdf)
+Tutorial -- Interfacing Fortran and Python: Using cffi, ctypes and cython [📝 PDF](https://github.com/ofmla/interfacing_fortran_from_python/blob/main/doc/interfacing_fortran_and_python.pdf)
 
 
 In this tutorial you will get a basic knowledge on different alternatives of calling Fortran code from Python. The tutorial focuses on the explicit C interface route, that is,
